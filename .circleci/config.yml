@@ -12,6 +12,7 @@ jobs:
        MYSQL_ALLOW_EMPTY_PASSWORD: true
        MYSQL_ROOT_HOST: '%'
        MYSQL_USER: root
+       MYSQL_POOT: 3306
    working_directory: ~/circleci-example-for-rails
    steps:
    - checkout
@@ -32,7 +33,7 @@ jobs:
    - run:
        name: Prepare db
        command: |
-         bundle exec rails db:schema:load 
+         bundle exec rails db:schema:load --trace
    # run tests!
    - run:
        name: Run rspec
